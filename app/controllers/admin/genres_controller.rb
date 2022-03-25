@@ -2,10 +2,10 @@ class Admin::GenresController < ApplicationController
   layout 'admin'
 
   def index
+    @genres = Genre.all
   end
 
   def create
-    
   end
 
   def edit
@@ -13,4 +13,5 @@ class Admin::GenresController < ApplicationController
 
   def update
   end
+
 end
