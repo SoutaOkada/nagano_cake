@@ -1,5 +1,9 @@
 <h1>商品一覧</h1>
 
+<%= link_to new_admin_item_path do %>
+  <button>+</button>
+<% end %>
+
 <table>
   <tr>
     <th>商品ID</th>
@@ -9,7 +13,7 @@
     <th>ステータス</th>
   </tr>
 
-  <%= @items.each do |item| %>
+  <% @items.each do |item| %>
     <tr>
       <td><%= item.id %></td>
       <td><%= item.name %></td>
