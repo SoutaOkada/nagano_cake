@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-
   root to: 'public/homes#top'
   get '/about' => 'public/homes#about'
+  
+  resources :customers, only: [:show, :edit, :update]
+  get 'customers/confirm'
+  get 'customers/withdrawal'
 
   namespace :admin do
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
