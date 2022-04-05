@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
+
   root to: 'public/homes#top'
   get '/about' => 'public/homes#about'
 
   scope module: :public do
-
     get 'customers' => "customers#show"
     get 'customers/edit' => "customers#edit"
     patch 'customers' => "customers#update"
     get 'customers/confirm'
     get 'customers/withdrawal'
+    
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
 
   namespace :admin do
