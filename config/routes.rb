@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   get '/about' => 'public/homes#about'
 
   scope module: :public do
-    resources :customers, only: [:show, :edit, :update]
+
+    get 'customers' => "customers#show"
+    get 'customers/edit' => "customers#edit"
+    patch 'customers' => "customers#update"
     get 'customers/confirm'
     get 'customers/withdrawal'
   end
