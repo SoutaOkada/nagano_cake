@@ -1,2 +1,10 @@
-<h1>Public::Items#index</h1>
-<p>Find me in app/views/public/items/index.html.erb</p>
+<h3>商品一覧</h3>
+  <p>(全<%= @items.count %>件)</p>
+
+  <% @items.each do |item| %>
+    <%= link_to item_path(item.id) do %>
+      <%= image_tag item.image, size: "200x200" %>
+      <%= item.name %>
+      <p>¥<span><%= item.add_tax_price.to_s(:delimited) %></span></p>
+    <% end %>
+  <% end %>
