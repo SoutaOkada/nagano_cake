@@ -9,8 +9,11 @@ Rails.application.routes.draw do
     patch 'customers' => "customers#update"
     get 'customers/confirm'
     get 'customers/withdrawal'
-    
+
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+
+    resources :items, only: [:index, :show]
+
   end
 
   namespace :admin do
