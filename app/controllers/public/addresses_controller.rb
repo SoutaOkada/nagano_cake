@@ -4,9 +4,6 @@ class Public::AddressesController < ApplicationController
     @addresses = Address.where(@address.customer_id == current_customer.id)
   end
 
-  def edit
-  end
-
   def create
     @address = Address.new(address_params)
     @address.customer_id = current_customer.id
@@ -14,7 +11,14 @@ class Public::AddressesController < ApplicationController
     redirect_to request.referer
   end
 
+  def edit
+    @address = Address.find(params[:id])
+  end
+
   def update
+    @address = Address.find(params[:id])
+    @address.update(address_params)
+    redirect_to addresses_path
   end
 
   def destroy
