@@ -30,6 +30,10 @@
 
     <% elsif customer_signed_in? %>
       <li>
+        <%= link_to "LOGO", root_path %>
+      </li>
+
+      <li>
         <%= link_to "マイページ", customers_path %>
       </li>
 
@@ -38,6 +42,10 @@
       </li>
 
     <% else %>
+      <li>
+        <%= link_to "LOGO", root_path %>
+      </li>
+
       <li>
         <%= link_to "About", about_path %>
       </li>
