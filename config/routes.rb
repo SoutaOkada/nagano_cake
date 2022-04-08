@@ -13,13 +13,18 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
 
     resources :items, only: [:index, :show]
-
+    
   end
 
   namespace :admin do
     root to: 'homes#top'
+    
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
+    
     resources :genres, only: [:index, :create, :edit, :update]
+    
+    resources :customers, only: [:index, :show,:edit, :update]
+    
   end
 
   devise_for :admin, skip: [:passwords] ,controllers: {
