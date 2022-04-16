@@ -60,3 +60,5 @@ gem 'devise'
 gem 'jquery-rails'
 
 gem 'enum_help'
+
+gem 'pry-rails'
