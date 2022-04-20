@@ -36,23 +36,24 @@ class Public::OrdersController < ApplicationController
     @order.customer_id = current_customer.id
     @order.status = 0
     @order.save
-    current_customer.cart_items.each do |cart_item|
-      @order_detail = OrderDetail.new
-      @order_detail.price = cart_item.item.price
-      @order_detail.amount = cart_item.amount
-      @order_detail.status = 0
-      @order_detail.order_id = @order.id
-      @order_detail.item_id = cart_item.item_id
-      @order_detail.save
-    end
-
+      current_customer.cart_items.each do |cart_item|
+        @order_detail = OrderDetail.new
+        @order_detail.price = cart_item.item.price
+        @order_detail.amount = cart_item.amount
+        @order_detail.status = 0
+        @order_detail.order_id = @order.id
+        @order_detail.item_id = cart_item.item_id
+        @order_detail.save
+      end
     redirect_to orders_complete_path
   end
 
   def index
+    @orders = Order.where(customer_id: current_customer.id)
   end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   private
