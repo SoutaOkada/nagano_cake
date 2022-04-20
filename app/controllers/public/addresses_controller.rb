@@ -1,7 +1,7 @@
 class Public::AddressesController < ApplicationController
   def index
     @address = Address.new
-    @addresses = Address.where(@address.customer_id == current_customer.id)
+    @addresses = Address.where(customer_id: current_customer.id)
   end
 
   def create
