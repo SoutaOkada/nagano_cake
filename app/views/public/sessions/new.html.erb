@@ -1,21 +1,50 @@
-<h2>ログイン</h2>
+<div class="container-lg">
 
-  <h4>会員の方はこちらからログイン</h4>
+  <div class="row", style="margin:20px 0;">
+    <div class="col-3">
+      <h2 style="background-color:lightgray; text-align:center;">ログイン</h2>
+    </div>
+  </div>
 
+  <div class="row", style="margin:20px 0;">
+    <div class="col-5">
+      <h4 style="background-color:lightgray; text-align:center;">会員の方はこちらからログイン</h4>
+    </div>
+  </div>
+
+  <div class="container-lg">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <p>メールアドレス</p>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="row">
+        <div class="col-3">
+          <p>メールアドレス</p>
+        </div>
+        <div>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", size: 70 %>
+        </div>
       </div>
 
-      <div class="field">
-        <p>パスワード</p>
-        <%= f.password_field :password, autocomplete: "current-password" %>
+      <div class="row">
+        <div class="col-3">
+          <p>パスワード</p>
+        </div>
+        <div>
+          <%= f.password_field :password, autocomplete: "current-password", size: 70 %>
+        </div>
       </div>
 
-      <div class="actions">
-        <%= f.submit "ログイン" %>
+
+      <div class="row">
+        <div class="col-3"></div>
+
+        <div class="col">
+          <%= f.submit "ログイン", class: "btn btn-primary" %>
+        </div>
       </div>
     <% end %>
+  </div>
+
 
 <%= render "public/shared/links" %>
+
+
+</div>
