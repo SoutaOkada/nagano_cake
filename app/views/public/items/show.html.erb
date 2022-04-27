@@ -14,12 +14,16 @@
       <h3 style="display:inline-block; margin-top:30px;">¥ <%= @item.add_tax_price.to_s(:delimited) %></h3>
         <p style="display:inline-block;">(税込)</p>
 
-      <div class="row", style="margin-top:30px;">
-        <%= form_with model: @cart_item, url: cart_items_path do |f| %>
-          <%= f.hidden_field :item_id, value: @item.id %>
-          <%= f.select :amount, *[1..10] %>
-          <%= f.submit "カートに入れる", class: "btn btn-success" %>
-        <% end %>
+      <% if customer_signed_in? %>
+        <div class="row", style="margin-top:30px;">
+          <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+            <%= f.hidden_field :item_id, value: @item.id %>
+            <%= f.select :amount, *[1..10] %>
+            <%= f.submit "カートに入れる", class: "btn btn-success" %>
+          <% end %>
+      
+      <% end %>
+
       </div>
 
     </div>

@@ -89,7 +89,7 @@
             </td>
 
             <td>
-              <%= form_with model: order_detail, url: admin_order_detail_path do |f| %>
+              <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch do |f| %>
                 <%= f.select :status, [["着手不可","cannot_start"], ["製作待ち","waiting"], \
                   ["製作中","progress"], ["製作完了","complete"]] %>
               <%= f.submit "更新", class: "btn btn-success" %>

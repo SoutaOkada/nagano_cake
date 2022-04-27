@@ -55,7 +55,7 @@
           </div>
 
           <div class="col">
-              <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %></br>
+              <%= f.select :address_id, options_from_collection_for_select(@addresses, :id, :address_display) %></br>
           </div>
         </div>
 
