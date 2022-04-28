@@ -1,0 +1,110 @@
+<div class="container-lg">
+
+  <div class="row", style="margin:20px 0;">
+    <div class="col-5">
+      <h3 style="background-color:lightgray; text-align:center;">
+        <span><%= @customer.last_name %><%= @customer.first_name %></span>
+          さんの会員詳細
+      </h3>
+    </div>
+  </div>
+
+  <div class="container-lg">
+
+    <div class="row align-items-center justify-content-center">
+      <div class="col-2">
+        <p>会員ID</p>
+      </div>
+
+      <div class="col-5">
+        <%= @customer.id %>
+      </div>
+    </div>
+
+    <div class="row align-items-center justify-content-center">
+      <div class="col-2">
+        <p>氏名</p>
+      </div>
+
+      <div class="col-5">
+        <%= @customer.last_name %> <%= @customer.first_name %>
+      </div>
+    </div>
+
+    <div class="row align-items-center justify-content-center">
+      <div class="col-2">
+        <p>フリガナ</p>
+      </div>
+
+      <div class="col-5">
+        <%= @customer.last_name_kana %> <%= @customer.first_name_kana %>
+      </div>
+    </div>
+
+    <div class="row align-items-center justify-content-center">
+      <div class="col-2">
+        <p>郵便番号</p>
+      </div>
+
+      <div class="col-5">
+        <%= @customer.postal_code %>
+      </div>
+    </div>
+
+    <div class="row align-items-center justify-content-center">
+      <div class="col-2">
+        <p>住所</p>
+      </div>
+
+      <div class="col-5">
+        <%= @customer.address %>
+      </div>
+    </div>
+
+    <div class="row align-items-center justify-content-center">
+      <div class="col-2">
+        <p>電話番号</p>
+      </div>
+
+      <div class="col-5">
+        <%= @customer.telephone_number %>
+      </div>
+    </div>
+
+    <div class="row align-items-center justify-content-center">
+      <div class="col-2">
+        <p>メールアドレス</p>
+      </div>
+
+      <div class="col-5">
+        <%= @customer.email %>
+      </div>
+    </div>
+
+    <div class="row align-items-center justify-content-center">
+      <div class="col-2">
+        <p>会員ステータス</p>
+      </div>
+
+      <div class="col-5">
+        <% if @customer.is_active == true %>
+          有効
+        <% else %>
+          退会
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row align-items-center justify-content-center">
+    <div class="col-3", style="padding-left:150px;">
+      <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success" %>
+    </div>
+
+    <div class="col-3", style="padding-left:150px;">
+      <%= link_to "注文履歴一覧を見る", admin_root_path, class: "btn btn-primary", style: "width:200px;" %>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,70 @@
+<div class="container-lg">
+
+  <div class="row", style="margin:20px 0;">
+
+    <div class="col-3">
+      <h2 style="background-color:lightgray; text-align:center;">商品一覧</h2>
+    </div>
+
+    <div class="col-8"></div>
+
+    <div class="col-1">
+      <%= link_to "＋", new_admin_item_path, class: "btn btn-light rounded-circle p-0 btn-outline-dark",\
+        style: "font-size:30px; width:3rem; height:3rem;" %>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <table class="table">
+
+      <tr class="table-secondary">
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>税抜価格</th>
+        <th>ジャンル</th>
+        <th>ステータス</th>
+      </tr>
+
+      <% @items.each do |item| %>
+
+        <tr>
+          <td>
+            <%= item.id %>
+          </td>
+
+          <td>
+            <%= link_to item.name, admin_item_path(item.id) %>
+          </td>
+
+          <td>
+            <%= item.price.to_s(:delimited) %>
+          </td>
+
+          <td>
+            <%= item.genre.name %>
+          </td>
+
+          <td>
+            <% if item.is_active == true %>
+              <p style="color:limegreen;">販売中</p>
+            <% else %>
+              <p style="color:silver;">販売停止中</p>
+            <% end %>
+          </td>
+        </tr>
+
+      <% end %>
+
+    </table>
+
+  </div>
+
+  <div class="row  align-items-center justify-content-center">
+    <%= paginate @items %>
+  </div>
+
+
+
+</div>
